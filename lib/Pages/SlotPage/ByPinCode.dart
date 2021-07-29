@@ -16,7 +16,7 @@ class _ByPinCodeState extends State<ByPinCode> {
   final _formKey = GlobalKey<FormState>();
 
 
-  FetchData() async {
+   FetchData() async {
     await http.get(Uri.parse(
         'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=' + pin.text +
             '&date=' + date.text)).then((value) {
@@ -29,7 +29,7 @@ class _ByPinCodeState extends State<ByPinCode> {
             color: Colors.deepPurple,fontWeight: FontWeight.bold
         ))));
       else
-        Navigator.push(context, MaterialPageRoute(builder: (context) => Data(slots: slots,)));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => Data(slots: slots)));
     });
   }
   @override

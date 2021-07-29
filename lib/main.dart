@@ -1,11 +1,25 @@
 import 'package:covid_19_awareness/Pages/HomePage/Home.dart';
+import 'package:covid_19_awareness/services/mythservice.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'Pages/SplashScreenPage/SplashScreen.dart';
 
-void main(){
-  runApp(MyApp());
+Future<void> main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+ runApp(
+  MultiProvider(
+      providers: [
+        Provider(
+      create: (_) => MythService()
+  )
+  ],
+    child: MyApp()
+  )
+ );
 }
 
 class MyApp extends StatelessWidget {

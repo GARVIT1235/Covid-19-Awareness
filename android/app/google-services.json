@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "394378770521",
+    "project_id": "covid-19-awareness-415f5",
+    "storage_bucket": "covid-19-awareness-415f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394378770521:android:9fb9f4a85ccd76df681948",
+        "android_client_info": {
+          "package_name": "com.example.covid_19_awareness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394378770521-41mg238m4ehv3b82nhdo62v8l3r5ogp8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.covid_19_awareness",
+            "certificate_hash": "60ea491658e64d5933be78c4e6d1903bdc1bf969"
+          }
+        },
+        {
+          "client_id": "394378770521-asf70tonbbpqdlkst5dfobi5l6hrctpm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBEsjsWEV0o3BfNf_4CUiepmkIcWRSi4A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394378770521-asf70tonbbpqdlkst5dfobi5l6hrctpm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,9 @@
 import 'dart:async';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:covid_19_awareness/services/mythservice.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SplashPage extends StatefulWidget{
   @override
@@ -8,22 +11,19 @@ class SplashPage extends StatefulWidget{
 }
 
 class SplashPageState extends State<SplashPage> {
-  @override
-  void initState() {
-    super.initState();
-    Timer(Duration(seconds: 2) , (){Navigator.of(context).pushReplacementNamed("/home");});
-  }
 
-  @override
+@override
   Widget build(BuildContext context) {
-    final X = MediaQuery
-        .of(context)
-        .size
-        .width;
-    final Y = MediaQuery
-        .of(context)
-        .size
-        .height;
+  MythService catService = Provider.of<MythService>(context, listen: false);
+  Future.delayed(Duration(seconds: 4), () async {
+    catService.getCategoriesCollectionFromFirebase()
+        .then((value) {
+      Navigator.of(context).pushReplacementNamed('/home');
+    });
+
+  });
+    final X = MediaQuery.of(context).size.width;
+    final Y = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.deepPurple,
       body: Container(

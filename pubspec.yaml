@@ -31,6 +31,9 @@ dependencies:
   google_fonts: ^0.3.2
   http: ^0.12.0
   animated_text_kit : ^4.2.1
+  firebase_core: ^1.4.0
+  cloud_firestore: ^2.4.0
+  provider: ^5.0.0
 
 dev_dependencies:
   flutter_test:
