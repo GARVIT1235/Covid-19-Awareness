@@ -1,4 +1,7 @@
+import 'package:covid_19_awareness/models/mythmodel.dart';
+import 'package:covid_19_awareness/services/mythservice.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class MythsPage extends StatelessWidget {
@@ -9,62 +12,10 @@ class MythsPage extends StatelessWidget {
   final imgPath = "assets/images/myths.png";
   final Color color = Colors.brown;
 
-  List<Map<String, String>> myths = [
-    {
-      "myth": "SARS-CoV-2 disease CANNOT be transmitted through mosquito bites",
-      "desc": "It's a respiratory virus which spreads primarily " +
-          "through droplets of an infected person's coughs or sneezes," +
-          " saliva or discharge from the nose.",
-      "imgPath": "assets/images/myths/garlic.png",
-    },
-    {
-      "myth":
-      "COVID-19 virus can be transmitted in areas with hot and humid climates",
-      "desc":
-      "There is no reason to believe that hot weather can kill the new coronavirus" +
-          " or other diseases. It can be transmitted in any climate.",
-      "imgPath": "assets/images/myths/hot.png",
-    },
-    {
-      "myth": "Garlic DOES NOT protect against infection from the coronavirus",
-      "desc": "Garlic may have some anti microbial properties." +
-          " However, no evidence suggests that garlic" +
-          " can protect people against COVID-19 virus.",
-      "imgPath": "assets/images/myths/garlic.png",
-    },
-    {
-      "myth": "Antibiotics DO NOT work against viruses, only bacteria",
-      "desc": "The new coronavirus (2019-nCoV) is a virus and, therefore, " +
-          "antibiotics should not be used as a means of prevention or treatment.",
-      "imgPath": "assets/images/myths/antibiotics.png",
-    },
-    {
-      "myth": "Parcels from China CANNOT spread coronavirus",
-      "desc":
-      "Scientists believe that the virus can't survive on letters or packages" +
-          " for an extended period of time. There is very " +
-          "low risk of spread from shipped products or packages",
-      "imgPath": "assets/images/myths/package.png",
-    },
-    {
-      "myth": "Cats and dogs DON'T spread coronavirus",
-      "desc":
-      "Currently, there is little evidence to suggest that SARS-CoV-2 can infect" +
-          " cats and dogs. Scientists are still debating" +
-          " the importance of this case to the outbreak.",
-      "imgPath": "assets/images/myths/dogs.png",
-    },
-    {
-      "myth": "All age groups CAN contact SARS-CoV-2",
-      "desc": "It can infect people of any age, including children." +
-          " However, older adults and individuals with prior health conditions" +
-          " are more likely to become severely ill.",
-      "imgPath": "assets/images/myths/ages.png",
-    },
-  ];
-
   @override
   Widget build(BuildContext context) {
+    MythService cats = Provider.of<MythService>(context, listen: false);
+    List<MythCategory> myths = cats.getCategories();
     return Scaffold(
       backgroundColor: Colors.grey[100],
       extendBodyBehindAppBar: true,
@@ -181,7 +132,7 @@ class MythsPage extends StatelessWidget {
                                     LimitedBox(
                                       maxHeight: constraint.maxHeight*0.17,
                                       child: Text(
-                                        "${myths[index]["myth"]}",
+                                       myths[index].myth,
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontSize: 19,
@@ -199,7 +150,7 @@ class MythsPage extends StatelessWidget {
                                     LimitedBox(
                                       maxHeight: constraint.maxHeight*0.45,
                                       child: Text(
-                                        "${myths[index]['desc']}",
+                                        myths[index].desc,
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontSize: 16.5,
