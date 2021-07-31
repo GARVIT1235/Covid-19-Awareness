@@ -1,5 +1,8 @@
 import 'package:covid_19_awareness/Pages/HomePage/Home.dart';
 import 'package:covid_19_awareness/services/mythservice.dart';
+import 'package:covid_19_awareness/services/precautionservices.dart';
+import 'package:covid_19_awareness/services/symptomservice.dart';
+import 'package:covid_19_awareness/services/virus_detailservice.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,8 +17,17 @@ Future<void> main() async{
   MultiProvider(
       providers: [
         Provider(
-      create: (_) => MythService()
-  )
+            create: (_) => MythService()
+        ),
+        Provider(
+            create: (_) => PrecautionService()
+        ),
+        Provider(
+            create: (_) => SymptomService()
+        ),
+        Provider(
+            create: (_) => VirusService()
+        )
   ],
     child: MyApp()
   )

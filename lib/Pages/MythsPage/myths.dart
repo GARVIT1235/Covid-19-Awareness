@@ -96,8 +96,8 @@ class MythsPage extends StatelessWidget {
             fit: FlexFit.loose,
             child: Container(
               padding: const EdgeInsets.fromLTRB(16, 20, 16, 15),
-              width: MediaQuery.of(context).size.width > 360.0
-                  ? MediaQuery.of(context).size.width - 31.0
+              width: MediaQuery.of(context).size.width > 310.0
+                  ? MediaQuery.of(context).size.width - 30.0
                   : MediaQuery.of(context).size.width,
               child: Material(
                 borderRadius: BorderRadius.circular(15.0),

@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:covid_19_awareness/services/mythservice.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:covid_19_awareness/services/precautionservices.dart';
+import 'package:covid_19_awareness/services/symptomservice.dart';
+import 'package:covid_19_awareness/services/virus_detailservice.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,11 +16,18 @@ class SplashPageState extends State<SplashPage> {
 
 @override
   Widget build(BuildContext context) {
-  MythService catService = Provider.of<MythService>(context, listen: false);
+  MythService cat1Service = Provider.of<MythService>(context, listen: false);
+  PrecautionService cat2Service = Provider.of<PrecautionService>(context, listen: false);
+  SymptomService cat3Service = Provider.of<SymptomService>(context, listen: false);
+  VirusService cat4Service = Provider.of<VirusService>(context, listen: false);
   Future.delayed(Duration(seconds: 4), () async {
-    catService.getCategoriesCollectionFromFirebase()
+
+    cat1Service.getCategoriesCollectionFromFirebase();
+    cat2Service.getCategoriesCollectionFromFirebase();
+    cat3Service.getCategoriesCollectionFromFirebase();
+    cat4Service.getCategoriesCollectionFromFirebase()
         .then((value) {
-      Navigator.of(context).pushReplacementNamed('/home');
+    Navigator.of(context).pushReplacementNamed('/home');
     });
 
   });
